@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #8b5cf6; /* Vibrant Purple */
+  --color-primary-hover: #7c3aed;
+  --color-secondary: #0ea5e9; /* Neon Blue */
+  --color-background: #030712; /* Deep Dark Space */
+  --color-surface: #111827;
+  --color-surface-light: #1f2937;
+  --color-border: #374151;
+  --color-text: #f9fafb;
+  --color-text-muted: #9ca3af;
+  
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Outfit', system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+  
+  body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.025em;
+  }
+}
+
+/* Custom utilities for glassmorphism and animations */
+@layer utilities {
+  .glass {
+    @apply bg-surface/50 backdrop-blur-md border border-white/10;
+  }
+  
+  .glass-card {
+    @apply glass rounded-2xl shadow-xl transition-all duration-300 hover:shadow-primary/20 hover:border-primary/50;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+  }
+}
